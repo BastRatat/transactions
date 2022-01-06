@@ -1,0 +1,76 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "parser": "babel-eslint",
+  "plugins": ["prettier", "import", "react-hooks"],
+  "extends": [
+    "react-app",
+    "airbnb",
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "settings": {
+    "import/extensions": [".js", ".jsx"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"],
+        "moduleDirectory": ["node_modules", "src/"] // needed for import absolute path
+      }
+    }
+  },
+  "rules": {
+    "no-invalid-regexp": "error",
+    "radix": 2, // require use of the second argument for parseInt()
+    "implicit-arrow-linebreak": 0,
+    "operator-linebreak": 0,
+    "no-negated-condition": 2,
+    "arrow-parens": [2, "as-needed"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-wrap-multilines": [
+      1,
+      {
+        "declaration": "parens",
+        "assignment": "parens",
+        "return": "parens",
+        "arrow": "parens",
+        "condition": "parens",
+        "logical": "parens",
+        "prop": "ignore"
+      }
+    ],
+    "no-console": [
+      1,
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "no-confusing-arrow": 0,
+    "no-shadow": 2, // set to 0 if it causes too many problems on old project
+    "no-underscore-dangle": 0, // can create variable such as const _foo = 10
+    "semi": [1, "never"],
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": 0,
+    "no-template-curly-in-string": 0,
+    "jsx-a11y/click-events-have-key-events": 0, // avoid adding empty onKeyDown on clickable div
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never", // avoid importing file with its extension at the end
+        "jsx": "never"
+      }
+    ]
+  }
+}
